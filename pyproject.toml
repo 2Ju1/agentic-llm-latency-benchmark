@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentic-llm-latency"
+version = "0.1.0"
+description = "A reproducible benchmark for agentic context growth, prefix caching, and LLM latency."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Lee Juwon" }]
+dependencies = [
+  "pandas>=2.0,<3",
+  "PyYAML>=6.0,<7",
+  "requests>=2.31,<3",
+  "transformers>=4.40,<5",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.8,<1"]
+
+[project.scripts]
+agentic-latency = "agentic_latency.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentic_latency"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
