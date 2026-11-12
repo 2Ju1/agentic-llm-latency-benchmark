@@ -2,7 +2,6 @@ import unittest
 
 from agentic_latency.metrics import diff_metrics, find_metric, parse_metrics_text
 
-
 METRICS = """
 # HELP vllm:prompt_tokens_total Total prompt tokens
 vllm:prompt_tokens_total 120
